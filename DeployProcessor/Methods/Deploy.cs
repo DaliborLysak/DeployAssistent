@@ -1,5 +1,9 @@
-﻿using System;
+﻿using CoreIO;
+using CoreIO.Data;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace DeployProcessor.Methods
@@ -10,11 +14,12 @@ namespace DeployProcessor.Methods
         {
             base.Process(project);
 
-            //var sourceInfo = new DirectoryInfo(sourceDir);
-            //var sourceFiles = sourceInfo.GetFiles("*", SearchOption.AllDirectories);
-            ////sourceFiles.
+            var sourceInfo = new DirectoryInfo(Project.SourcePath);
+            var sourceFiles = sourceInfo.GetFiles("*", SearchOption.AllDirectories);
+            var fromTo = new List<Tuple<string, string>>();
+            sourceFiles.ToList().ForEach(f => fromTo.Add(new Tuple<string, string>(f.FullName, f.FullName.Replace(Project.SourcePath, Project.TargetPath))));
 
-            //FileManipulationProvider.Process(new CopyFileData());
+            Processor.FileManipulationProvider.Process<CopyFileData>(new CopyFileData() { FromTo = fromTo });
         }
     }
 }

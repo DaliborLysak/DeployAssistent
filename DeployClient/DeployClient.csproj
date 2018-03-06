@@ -92,6 +92,18 @@
     <None Include="Resources\Search.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SharedCore\CoreDialogs\CoreDialogs.csproj">
+      <Project>{aedcf97f-ded8-4b2b-a9d7-8be0ef15448a}</Project>
+      <Name>CoreDialogs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedCore\CoreIO\CoreIO.csproj">
+      <Project>{f53da7a7-8a91-4fec-96da-5b724b67d058}</Project>
+      <Name>CoreIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedCore\Core\Core.csproj">
+      <Project>{330bb892-9110-4260-9d5a-5b827d4b9382}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DeployProcessor\DeployProcessor.csproj">
       <Project>{8cc556d3-cc93-47af-a63b-7b62cba45089}</Project>
       <Name>DeployProcessor</Name>
